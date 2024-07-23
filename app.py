@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 
 def load_model():
-    with open('model/predictor_model.pickle', 'rb') as f:
+    with open('predictor_model.pickle', 'rb') as f:
         model = pickle.load(f)
     return model
 
