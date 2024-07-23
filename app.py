@@ -61,6 +61,10 @@ if submitted:
                    (1 if GpuBrand == 'Intel UHD' else 0), (1 if GpuBrand == 'Nvidia GeForce' else 0),
                    (1 if GpuBrand == 'Nvidia Quadro' else 0), (1 if GpuBrand == 'Other' else 0)]
 
+    with open('predictor_model.pickle', 'rb') as f:
+        model = pickle.load(f)
+        
+    predicted_price = model.predict(input_array)
 
     # Display prediction
-    st.header(f"Predicted Price: LKR.")
+    st.header(f"Predicted Price: LKR. {predicted_price[0]:.2f}")
